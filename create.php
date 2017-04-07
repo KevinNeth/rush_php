@@ -12,9 +12,9 @@
     <h1>Inscription</h1>
     <?php
         if (!sub())
-            echo "<p>Inscription reussie !</p>";
+            echo "<p>Inscription reussie !</p><p><a href='index.php'>Retourner a l'accueil.</a></p>";
         else
-            echo "<p>Erreur pendant l'inscription.</p>";
+            echo "<p>Erreur pendant l'inscription.</p><p><a href='subscribe.php'>Réessayer ?</a></p>";
     ?>
 </div>
 </body>
