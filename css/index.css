@@ -131,3 +131,23 @@ a:link
 	width: 20px;
 	height: 20px;
 }
+
+#sub_box {
+	margin: 25px auto;
+	padding-bottom: 15px;
+	background-color: whitesmoke;
+	border-radius: 2%;
+	width: 25%;
+	text-align: center;
+	border: solid;
+}
+
+#log_box {
+	margin: 25px auto;
+	padding-bottom: 15px;
+	background-color: whitesmoke;
+	border-radius: 2%;
+	width: 25%;
+	text-align: center;
+	border: solid;
+}

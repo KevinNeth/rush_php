@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,8 +7,13 @@
 	</head>
 	<body>
 		<?php include "./includes/header.php" ?>
-		<form method="post" action="#">
-			inputs...
-		</form>
+        <div id="sub_box">
+            <form method="post" action="create.php">
+                <h1>Inscription</h1>
+                <p>Identifiant : <BR><input name="login" value=""></p>
+                <p>Mot de passe : <BR><input name="passwd" value="" type="password"></p>
+                <input type="submit" name="submit" value="Inscription">
+            </form>
+        </div>
 	</body>
 </html>
