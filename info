@@ -1,0 +1,10 @@
+<?php
+session_start();
+	if ($_POST['submit'] == "Valider l'inscription")
+	{
+		sub_checker();
+		stocker dans la base sql
+		Set $_SESSION['user'] = $_POST['login'];
+		header('Location: index.php');
+	}
+?>
