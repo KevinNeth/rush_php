@@ -2,6 +2,14 @@ CREATE DATABASE db_test;
 
 use db_test
 
+CREATE TABLE users
+(
+	id_user INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	login VARCHAR(32) NOT NULL,
+	password VARCHAR(128) NOT NULL,
+	admin ENUM('yes','no') DEFAULT 'no' NOT NULL
+);
+
 CREATE TABLE products
 (
 	id_product INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
