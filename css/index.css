@@ -151,3 +151,12 @@ a:link
 	text-align: center;
 	border: solid;
 }
+
+#logout {
+	display: inline-block;
+	float: right;
+	cursor: pointer;
+	width: 80px;
+	height: 80px;
+	margin-right: 10px;
+}

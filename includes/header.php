@@ -2,17 +2,23 @@
 	<a href = "index.php">
 		<img id = "logo" src = "http://www.180back.com/wp-content/uploads/2013/12/headict.png">
 	</a>
-	<?php
-		if (!isset($_SESSION['user']))
-		{
-	?>
-	<a href = "subscribe.php">
+    <?php
+    include "includes/whoami.php";
+    include "includes/login.php";
+    include "includes/logout.php";
+    if (check_user())
+        echo '<a href = "logout.php">
+		<img id = "logout" src = "https://image.freepik.com/free-icon/logout-ios-7-interface-symbol_318-33643.jpg">
+	</a>';
+    else {
+        echo '<a href = "subscribe.php">
 		<img id = "sub" src = "https://t3.ftcdn.net/jpg/00/45/94/18/240_F_45941854_T6uM5xoywNVo9SsqFo1dr7r54IiP2ACL.jpg">
 	</a>
 	<a href = "user.php">
 	<img id = "user" src = "http://www.itafv.dz/images/bouton_connexion.png">
-	</a>
-	<?php }?>
+	</a>';
+    }
+    ?>
 	<img id = "panier" src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQPNXmtD1xENijy4BIwUmHzm1DtbBSgKhHVM5JaXfgeCByEwEHQ">
 </div>
 <div id = "menu2">

@@ -1,4 +1,5 @@
 <?php
+    session_start();
 	$link = mysqli_connect("localhost", "root", "root", "db_test", "8080");
 	if (mysqli_connect_errno())
 		echo "Failed to connect to MySQL : " . mysqli_connect_error();
