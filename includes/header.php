@@ -1,6 +1,3 @@
-<?php
-	session_start();
-?>
 <div id = "menu">
 	<a href = "index.php">
 		<img id = "logo" src = "http://www.180back.com/wp-content/uploads/2013/12/headict.png">
