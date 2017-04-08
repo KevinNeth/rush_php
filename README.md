@@ -5,9 +5,10 @@ Kneth :
 
 Fmartine :
 - Front
+- Page Admin
+- Supprimer commandes lors de la suppression d'un compte
 
 Together :
-- Admin
 - Panier
 
 ## To Check

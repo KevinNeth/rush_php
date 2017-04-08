@@ -14,7 +14,7 @@
     if (log_in())
         echo "<p>Connexion reussie !</p><p>Bienvenue ".$_SESSION['loggued_on_user']."</p>";
     else
-        echo "<p>Erreur pendant la connexion</p><p><a href='user.php'>Réessayer ?</a></p>";
+        echo "<p>Erreur pendant la connexion</p><p><a href='login.php'>Réessayer ?</a></p>";
     ?>
 </div>
 </body>
