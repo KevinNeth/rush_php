@@ -1,22 +1,21 @@
 <?php
-    function sub()
+    function sub($login, $password, $submit)
     {
-        if ($_POST['submit'] == 'Inscription' && $_POST['login'] && $_POST['passwd']) {
-            if (!file_exists("private"))
-                mkdir("private", 0777);
-            if (!file_exists("private/passwd"))
-                file_put_contents('private/passwd', null);
-            $accounts = unserialize(file_get_contents("private/passwd"));
-            if ($accounts != null) {
-                foreach ($accounts as $key => $value) {
-                    if ($value['login'] == $_POST['login'])
-                        return TRUE;
-                }
-            }
-            $tmp['login'] = $_POST['login'];
-            $tmp['passwd'] = hash('sha512', $_POST['passwd']);
-            $accounts[] = $tmp;
-            file_put_contents('private/passwd', serialize($accounts));
+		$link = mysqli_connect("localhost", "root", "root", "db_test", "8080");
+		if (mysqli_connect_errno())
+			echo "Failed to connect to MySQL : " . mysqli_connect_error();
+        if ($submit == 'Inscription' && $login && $password)
+		{
+			$res = mysqli_query($link, "SELECT login FROM users WHERE login = '" . $login . "'");
+			$row = mysqli_fetch_array($res, MYSQLI_ASSOC);
+			if (!$row)
+			{
+				$passwd = hash('sha512', $password);
+				$res = mysqli_query($link, "INSERT INTO users VALUES (null, '" . $login . "', '" . $passwd . "', 'no')");
+				return TRUE;
+			}
+			else
+				return FALSE;
         } else
             return FALSE;
     }

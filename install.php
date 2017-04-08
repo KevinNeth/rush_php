@@ -25,3 +25,6 @@ VALUES (null, 'Ovibos lilac', "https://www.headict.com/img/products2/product/SAT
 (null, 'Chapo', "https://www.headict.com/img/products2/product/CRA01420,capeline-raphia-macram.jpg", '25', 'femme', 'chepeau'),
 (null, 'Chapeau Jaimlapip', "https://www.headict.com/img/products2/product/STE2468413-72,stetson,panama-stetson-galon-cuir.jpg", '25', 'homme', 'chapeau'),
 (null, 'Vive la france', "https://www.headict.com/img/products2/product/STE1398112-2,stetson,chapeau-en-feutre-bleu.jpg", '25', 'homme', 'chapeau');
+
+INSERT INTO users
+VALUES (null, "kneth", "", "yes");

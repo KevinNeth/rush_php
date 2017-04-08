@@ -1,31 +1,25 @@
 <?php
-    function auth($login, $passwd)
+    function auth($login, $password)
     {
-        if ($login && $passwd)
+        if ($login && $password)
         {
-            if(!file_exists("private"))
-                mkdir("private", 0777);
-            if(!file_exists("private/passwd"))
-                file_put_contents('private/passwd', null);
-            $accounts = unserialize(file_get_contents("private/passwd"));
-            if ($accounts != null)
+			$link = mysqli_connect("localhost", "root", "root", "db_test", "8080");
+				if (mysqli_connect_errno())
+					echo "Failed to connect to MySQL : " . mysqli_connect_error();
+			$res = mysqli_query($link, "SELECT login FROM users WHERE login = '" . $login . "'");
+			$row = mysqli_fetch_array($res, MYSQLI_ASSOC);
+    		if ($row != null)
             {
-                $passwd = hash('sha512', $passwd);
-                $check = 0;
-                foreach ($accounts as $key => $value)
-                {
-                    if ($value['login'] == $login)
-                    {
-                        if ($value['passwd'] == $passwd)
-                            $check = 42;
-                    }
-
-                }
-                if ($check === 42)
-                    return TRUE;
+                $passwd = hash('sha512', $password);
+				$res = mysqli_query($link, "SELECT password FROM users WHERE login = '" . $login . "'");
+				$row = mysqli_fetch_array($res, MYSQLI_ASSOC);
+                if ($row['password'] == $passwd)
+					return TRUE;
                 else
                     return FALSE;
             }
+			else
+				return FALSE;
         }
         else
             return FALSE;
