@@ -7,6 +7,7 @@
 	</head>
 	<body>
 		<?php include "./includes/header.php"; ?>
+        <?php include "./includes/whoami.php"?>
 		<div id = "corps">
 			<img class = "imgbody" src = "https://www.headict.com/modules/nq_homepush/configuration/images/fr/2e829149cd1149f1dd6473b33cb63c43.jpg">
 			<a class = "title">MASSE BONNET !</a>

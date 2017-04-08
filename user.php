@@ -8,7 +8,7 @@
 	<body>
 		<?php include "./includes/header.php" ?>
         <div id="log_box">
-            <form method="post" action="create.php">
+            <form method="post" action="login.php">
                 <h1>Connexion</h1>
                 <p>Identifiant : <BR><input name="login" value=""></p>
                 <p>Mot de passe : <BR><input name="passwd" value="" type="password"></p>
