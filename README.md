@@ -5,7 +5,7 @@ Kneth :
 - Categories et produits
 
 Fmartine :
-- Gestion users
+- Gestion users (A refaire en SQL)
 - Front
 
 Together :

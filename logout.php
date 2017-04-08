@@ -9,7 +9,7 @@
 <body>
 <?php include "./includes/header.php" ?>
 <div id="sub_box">
-    <h1>Connexion</h1>
+    <h1>Déconnexion</h1>
     <?php
         log_out();
         echo "<p>Déconnexion reussie !</p>";
