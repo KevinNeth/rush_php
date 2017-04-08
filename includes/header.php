@@ -27,7 +27,7 @@
 	</a>';
     }
     ?>
-	<img id = "panier" src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQPNXmtD1xENijy4BIwUmHzm1DtbBSgKhHVM5JaXfgeCByEwEHQ">
+	<a href = "panier.php"><img id = "panier" src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQPNXmtD1xENijy4BIwUmHzm1DtbBSgKhHVM5JaXfgeCByEwEHQ"></a>
 </div>
 <div id = "menu2">
 	<a href="page_categorie.php" class = "change"><p class = "ctgr">Tout les produits</p></a>
