@@ -1,18 +1,18 @@
 # Rush site d'ecomerce
 ## TO-DO
 Kneth :
-- Gestionnaire de donnees
-- Categories et produits
+- Proteger contre les injections SQL
 
 Fmartine :
 - Front
-- Supprimer fichier poubelle dans le github
 
 Together :
 - Admin
 - Panier
 
 ## To Check
-- users
+- Users
+- Gestionnaire de donnees
+- Categories et produits
 
 ## Done
