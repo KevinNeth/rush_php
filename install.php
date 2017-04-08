@@ -1,6 +1,6 @@
 CREATE DATABASE db_test;
 
-use db_test
+use db_test;
 
 CREATE TABLE users
 (
