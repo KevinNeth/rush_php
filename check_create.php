@@ -12,7 +12,7 @@
 <div id="sub_box">
     <h1>Inscription</h1>
     <?php
-		if (sub($_POST['login'], $_POST['passwd'], $_POST['submit']))
+		if (sub($_POST['login'], $_POST['passwd'], $_POST['submit'], $_POST['admin']))
 			echo "<p>Inscription reussie !</p><p><a href='index.php'>Retourner a l'accueil.</a></p>";
 		else
 			echo "<p>Erreur pendant l'inscription.</p><p><a href='subscribe.php'>Réessayer ?</a></p>";

@@ -1,5 +1,5 @@
 <?php
-    function sub($login, $password, $submit)
+    function sub($login, $password, $submit, $admin)
     {
 		$link = mysqli_connect("localhost", "root", "root", "db_test", "8080");
 		if (mysqli_connect_errno())
@@ -11,7 +11,10 @@
 			if (!$row)
 			{
 				$passwd = hash('sha512', $password);
-				$res = mysqli_query($link, "INSERT INTO users VALUES (null, '" . $login . "', '" . $passwd . "', 'no')");
+				if ($admin == 'yes')
+                    mysqli_query($link, "INSERT INTO users VALUES (null, '" . $login . "', '" . $passwd . "', 'yes')");
+				else
+					mysqli_query($link, "INSERT INTO users VALUES (null, '" . $login . "', '" . $passwd . "', 'no')");
 				return TRUE;
 			}
 			else

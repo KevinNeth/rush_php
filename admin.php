@@ -20,7 +20,8 @@
 <?php include "./includes/header.php" ?>
 <div id="sub_box">
     <h1>Admin</h1>
-    <p>Connexion reussie !</p><p>Bienvenue <?=$_SESSION['loggued_on_user']?></p>
+    <p>Connexion reussie !</p><p>Bienvenue Mr. <?=$_SESSION['loggued_on_user']?>.</p>
+
 </div>
 </body>
 </html>
