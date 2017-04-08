@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php
+session_start();
+if ($_SESSION['install'] != 1)
+	include "./install.php";
+?>
 <!DOCTYPE html>
 <html>
 	<head>
