@@ -3,9 +3,8 @@
 		<img id = "logo" src = "http://www.180back.com/wp-content/uploads/2013/12/headict.png">
 	</a>
     <?php
-    include "includes/whoami.php";
-    include "includes/login.php";
-    include "includes/logout.php";
+    include "includes/check_usr.php";
+    include "includes/fun_log.php";
     if (check_user())
         echo '<a href = "logout.php">
 		<img id = "logout" src = "https://image.freepik.com/free-icon/logout-ios-7-interface-symbol_318-33643.jpg">
@@ -14,7 +13,7 @@
         echo '<a href = "subscribe.php">
 		<img id = "sub" src = "https://t3.ftcdn.net/jpg/00/45/94/18/240_F_45941854_T6uM5xoywNVo9SsqFo1dr7r54IiP2ACL.jpg">
 	</a>
-	<a href = "user.php">
+	<a href = "login.php">
 	<img id = "user" src = "http://www.itafv.dz/images/bouton_connexion.png">
 	</a>';
     }

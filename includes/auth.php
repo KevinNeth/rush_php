@@ -1,7 +1,7 @@
 <?php
     function auth($login, $passwd)
     {
-        if ($_POST['login'] && $_POST['passwd'])
+        if ($login && $passwd)
         {
             if(!file_exists("private"))
                 mkdir("private", 0777);
@@ -10,7 +10,7 @@
             $accounts = unserialize(file_get_contents("private/passwd"));
             if ($accounts != null)
             {
-                $passwd = hash('sha512', $_POST['passwd']);
+                $passwd = hash('sha512', $passwd);
                 $check = 0;
                 foreach ($accounts as $key => $value)
                 {
