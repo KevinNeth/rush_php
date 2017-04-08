@@ -7,6 +7,7 @@ Fmartine :
 - Front
 - Page Admin
 - Supprimer commandes lors de la suppression d'un compte
+- Actualiser header apres co/deco
 
 Together :
 - Panier
