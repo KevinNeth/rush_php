@@ -16,6 +16,16 @@ mysqli_query($link, "CREATE TABLE IF NOT EXISTS users
 	admin ENUM('yes','no') DEFAULT 'no' NOT NULL
 );");
 
+mysqli_query($link, "CREATE TABLE IF NOT EXISTS cart
+(
+	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	login VARCHAR(32),
+	id_product INT NOT NULL,
+	product_price DECIMAL(10, 2) NOT NULL,
+	quantity INT DEFAULT 0,
+	sub_total DECIMAL(10, 2)
+);");
+
 mysqli_query($link, "CREATE TABLE IF NOT EXISTS products
 (
 	id_product INT PRIMARY KEY AUTO_INCREMENT NOT NULL,

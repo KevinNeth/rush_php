@@ -3,7 +3,26 @@
 	$link = mysqli_connect("localhost", "root", "root", "db_test", "8080");
 	if (mysqli_connect_errno())
 		echo "Failed to connect to MySQL : " . mysqli_connect_error();
+
+function debug($var)
+{
+	echo "<pre>";
+	var_dump($var);
+	echo "</pre>";
+}
 ?>
+
+<?php
+	if ($_POST['submit'] == "add" && isset($_POST['id_product']))
+	{
+		if (!isset($_SESSION['panier'][$_POST['id_product']]))
+			$_SESSION['panier'][$_POST['id_product']] = 1;
+		else
+			$_SESSION['panier'][$_POST['id_product']] += 1;
+		debug($_SESSION);
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,9 +41,13 @@
 				while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 				{?>
 					<div style = "display: inline-block;">
-						<img class = "product" src = "<?php echo $row['img_url']; ?>"><br>
-						<img id = "panier2" src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQPNXmtD1xENijy4BIwUmHzm1DtbBSgKhHVM5JaXfgeCByEwEHQ">
-						<a class = "descrp"><?php echo $row['title']." "; echo $row['price'];?></a>
+					<form method="post" action="page_categorie.php">
+						<img class = "product" src = "<?= $row['img_url']; ?>"><br>
+						<a class = "descrp"><?= $row['title']." "; echo $row['price'];?></a>
+						<div><input type="hidden" name="id_product" value="<?= $row['id_product'] ?>" /></div>
+						<div><input type="hidden" name="price" value="<?= $row['price'] ?>" /></div>
+						<input type="submit" name="submit" value="add"/>
+					</form>
 					</div>
 				<?php }?>
 		</div>

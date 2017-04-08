@@ -130,6 +130,7 @@ a:link
 {
 	width: 20px;
 	height: 20px;
+	cursor: pointer;
 }
 
 #sub_box {
