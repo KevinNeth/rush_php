@@ -38,6 +38,7 @@ if (mysqli_connect_errno())
 					VALUES (null, '". $commande ."', '". $_SESSION['loggued_on_user'] ."', '". $id ."', '". $rown['title'] ."', '". $rown['price'] ."', '". $quantity ."',
 					 '". $rown['price'] * $quantity ."', '". $_POST['fullprice']."', '". $date ."');");
 				}
+				unset($_SESSION['panier']);
 				echo "Votre commande a bien été enregistrée";
 			}
 			?>

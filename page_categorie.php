@@ -48,7 +48,7 @@ function debug($var)
 					<div style = "display: inline-block;">
 					<form method="post" action="<?= $redir; ?>">
 						<img class = "product" src = "<?= $row['img_url']; ?>"><br>
-						<a class = "descrp"><?= $row['title']." "; echo $row['price'];?></a>
+						<a class = "descrp"><?= $row['title']." "; echo $row['price'];?>€</a>
 						<div><input type="hidden" name="id_product" value="<?= $row['id_product'] ?>" /></div>
 						<div><input type="hidden" name="price" value="<?= $row['price'] ?>" /></div>
 						<input type="submit" name="submit" value="add"/>
