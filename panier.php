@@ -70,6 +70,7 @@ function debug($var)
 							<div style = 'position: absolute; float: right;'>
 						TOTAL  :".$fullprice."€
 						<form method = 'post' action = 'archive.php'>
+							<input type = 'hidden' name = 'fullprice' value = ". $fullprice ." />
 							<input type = 'submit' name = 'submit' value = 'VALIDER'/>
 						</form>
 						<form method = 'post' action = 'panier.php'>

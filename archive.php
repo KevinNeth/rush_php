@@ -21,8 +21,25 @@ if (mysqli_connect_errno())
 		<?php include "./includes/header.php" ?>
 		<div style = "text-align: center;">
 			<?php
-				print_r($_SESSION['panier']);
-				echo "Votre commande a bien ete enregistrer";
+			if (!empty($_SESSION['loggued_on_user']))
+			{
+				$com = mysqli_query($link, "SELECT MAX(command_numb) FROM cart");
+				$rowcom = mysqli_fetch_array($com, MYSQLI_ASSOC);
+				if (!$rowcom['MAX(command_numb)'])
+					$commande = 1;
+				else
+					$commande = $rowcom['MAX(command_numb)'] + 1;
+				$date = date("Y-m-d H:i:s");
+				foreach($_SESSION['panier'] as $id => $quantity)
+				{
+					$n = mysqli_query($link, "SELECT * FROM products WHERE id_product = '". $id ."'");
+					$rown = mysqli_fetch_array($n, MYSQLI_ASSOC);
+					mysqli_query($link, "INSERT INTO cart
+					VALUES (null, '". $commande ."', '". $_SESSION['loggued_on_user'] ."', '". $id ."', '". $rown['title'] ."', '". $rown['price'] ."', '". $quantity ."',
+					 '". $rown['price'] * $quantity ."', '". $_POST['fullprice']."', '". $date ."');");
+				}
+				echo "Votre commande a bien été enregistrée";
+			}
 			?>
 		</div>
 	</body>

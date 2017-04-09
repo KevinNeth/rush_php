@@ -19,11 +19,15 @@ mysqli_query($link, "CREATE TABLE IF NOT EXISTS users
 mysqli_query($link, "CREATE TABLE IF NOT EXISTS cart
 (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	command_numb INT,
 	login VARCHAR(32),
 	id_product INT NOT NULL,
+	name_product VARCHAR(64) NOT NULL,
 	product_price DECIMAL(10, 2) NOT NULL,
 	quantity INT DEFAULT 0,
-	sub_total DECIMAL(10, 2)
+	price_add DECIMAL(10, 2) NOT NULL,
+	full_price DECIMAL(10, 2) NOT NULL,
+	order_date DATETIME
 );");
 
 mysqli_query($link, "CREATE TABLE IF NOT EXISTS products
