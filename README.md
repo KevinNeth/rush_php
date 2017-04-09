@@ -1,7 +1,6 @@
 # Rush site d'e-commerce
 ## TO-DO
 Kneth :
-- Proteger contre les injections SQL
 - Rajouter bouton + - sur page categorie
 
 Fmartine :
@@ -25,12 +24,14 @@ Together :
 - Archivage des commandes
 - Mettre les euros a cote des prix
 - Pouvoir modifier son compte.
+- Proteger contre les injections SQL
 
 ## Bug a changer
 
 
 ## Done
 
+- Proteger contre les injections SQL
 
 ## Bonus
 - Supprimer commandes lors de la suppression d'un compte

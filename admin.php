@@ -91,12 +91,13 @@
             echo "<form action='modif_cart.php' method='post'>
                     <table>
                     <input type='hidden' name='id' value='".$lst_row['id']."'>
-                    <tr><span>".$lst_row['command_numb']."</span></tr> | 
+					<input type='hidden' name='cn' value='".$lst_row['command_numb']."'>
+                    <tr><span>".$lst_row['command_numb']."</span></tr> |
                     <span>".$lst_row['login']."</span> |
                     <span>".$lst_row['full_price']."</span> |
                     <span>".$lst_row['order_date']."</span> |
                     <button type='submit' name='modif' value='".$lst_row['command_numb']."'>Modifier</button>
-                    <input type='submit' name='del' value='Supprimer'><BR></form>";
+                    <input type='submit' name='del2' value='Supprimer'><BR></form>";
             $i++;
     }
     ?>
