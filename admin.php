@@ -67,7 +67,6 @@
     ?>
     <h2>Gestion des catégories</h2>
     <?php
-    echo "<p>Créer une nouvelle catégorie : <a href='create_cat.php'><input type=\"button\" value=\"OK\"></a></p>";
     $lst = mysqli_query($link, "SELECT sub_category FROM products GROUP BY sub_category");?>
         <form action='del_cat.php' method='post'>
             <select name="del">
@@ -80,6 +79,27 @@
                 </select>
             <input type="submit" value="Supprimer">
         </form>
+    <h2>Gestion des paniers</h2>
+    <?php
+    $i = 1;
+    $count = mysqli_query($link, "SELECT MAX(command_numb) FROM cart");
+    $cnt_row = mysqli_fetch_array($count, MYSQLI_ASSOC);
+    while ($i <= $cnt_row['MAX(command_numb)'])
+    {
+        $lst = mysqli_query($link, "SELECT * FROM cart WHERE command_numb = $i");
+        $lst_row = mysqli_fetch_array($lst, MYSQLI_ASSOC);
+            echo "<form action='modif_prod.php' method='post'>
+                    <input type='hidden' name='id' value='".$lst_row['id']."'>
+                    <span>".$lst_row['command_numb']."</span> | 
+                    <span>".$lst_row['login']."</span> | 
+                    <span>".$lst_row['full_price']."</span> | 
+                    <span>".$lst_row['order_date']."</span> | 
+                    <input type='submit' name='modif' value='Modifier'>
+                    <input type='submit' name='del' value='Supprimer'><BR></form>";
+        $i++;
+    }
+    ?>
+
 </div>
 </body>
 </html>

@@ -6,6 +6,7 @@ Kneth :
 
 Fmartine :
 - Front
+- Creer categories et select pour les categories
 - Cart modifier
 - Check les autorisations sur certaines pages
 
