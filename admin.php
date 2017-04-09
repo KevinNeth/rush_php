@@ -3,7 +3,7 @@
     $link = mysqli_connect("localhost", "root", "root", "db_test", "8080");
     if (mysqli_connect_errno())
         echo "Failed to connect to MySQL : " . mysqli_connect_error();
-    $res = mysqli_query($link, "SELECT admin FROM users WHERE login = '" . $_SESSION['loggued_on_user'] . "'");
+    $res = mysqli_query($link, "SELECT admin FROM users WHERE login = '" . mysqli_real_escape_string($link, $_SESSION['loggued_on_user']) . "'");
     $row = mysqli_fetch_array($res, MYSQLI_ASSOC);
     if ($row['admin'] != 'yes')
         header("Location: index.php");
@@ -90,10 +90,10 @@
         $lst_row = mysqli_fetch_array($lst, MYSQLI_ASSOC);
             echo "<form action='modif_prod.php' method='post'>
                     <input type='hidden' name='id' value='".$lst_row['id']."'>
-                    <span>".$lst_row['command_numb']."</span> | 
-                    <span>".$lst_row['login']."</span> | 
-                    <span>".$lst_row['full_price']."</span> | 
-                    <span>".$lst_row['order_date']."</span> | 
+                    <span>".$lst_row['command_numb']."</span> |
+                    <span>".$lst_row['login']."</span> |
+                    <span>".$lst_row['full_price']."</span> |
+                    <span>".$lst_row['order_date']."</span> |
                     <input type='submit' name='modif' value='Modifier'>
                     <input type='submit' name='del' value='Supprimer'><BR></form>";
         $i++;
