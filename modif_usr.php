@@ -10,10 +10,18 @@
 <?php include "./includes/header.php" ?>
 <?php include "./includes/fun_sub.php"?>
 <?php include "./includes/fun_del.php"?>
+<?php include "./includes/fun_mod.php"?>
 <div id="sub_box">
-    <h1>Suppression de compte</h1>
-    <?php //usr_del_adm($_POST['login']);?>
-    <p>Le compte <?=$_POST['login']?> a bien été supprimé.</p>
+    <?php
+        if ($_POST['del'] == 'Supprimer')
+        {
+            echo "<h1>Suppression de compte</h1>".usr_del_adm($_POST['login'])."<p>Le compte ".$_POST['login']." a bien été supprimé.</p>";
+        }
+        else if ($_POST['modif'] == 'Modifier')
+        {
+            echo "<h1>Modification de compte</h1>".usr_mod($_POST['login'], $_POST['password'], $_POST['admin'], $_POST['id'])."<p>Le compte ".$_POST['login']." a bien été modifié.</p>";
+        }
+    ?>
 </div>
 </body>
 </html>

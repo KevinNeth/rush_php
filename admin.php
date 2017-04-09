@@ -17,20 +17,21 @@
 </head>
 <body>
 <?php include "./includes/header.php" ?>
-<div id="sub_box">
+<div id="admin_box">
     <h1>Admin</h1>
-    <p>Connexion reussie !</p><p>Bienvenue Mr. <?=$_SESSION['loggued_on_user']?>.</p>
+    <p>Bienvenue Mr. <?=$_SESSION['loggued_on_user']?>.</p>
     <p>Créer un nouvel utilisateur : <a href="subscribe.php"><input type="button" value="OK"></a></p>
     <p>Liste utilisateurs : </p>
     <?php
         $i = 1;
-        $count = mysqli_query($link, "SELECT login FROM users");
-        $row_cnt = mysqli_num_rows($count);
-        while ($i <= $row_cnt)
+        $count = mysqli_query($link, "SELECT MAX(id_user) FROM users");
+        $cnt_row =  $row = mysqli_fetch_array($count, MYSQLI_ASSOC);
+        while ($i <= $cnt_row['MAX(id_user)'])
         {
             $lst = mysqli_query($link, "SELECT * FROM users WHERE id_user = $i");
             $lst_row = mysqli_fetch_array($lst, MYSQLI_ASSOC);
-            echo "<form action='modif_usr.php' method='post'><input type='text' name='login' value='".$lst_row['login']."'><input type='text' name='password' value='".$lst_row['password']."'><input type='text' name='admin' value='".$lst_row['admin']."'><BR><input type='button' value='Supprimer'></form>";
+            if ($lst_row['login'] != '')
+                echo "<form action='modif_usr.php' method='post'><input type='hidden' name='id' value='".$lst_row['id_user']."'><input id='txt' type='text' name='login' value='".$lst_row['login']."'><input id='txt' type='text' name='password' value='".$lst_row['password']."' class='passwd'><input id='txt' type='text' name='admin' value='".$lst_row['admin']."'><input type='submit' name='modif' value='Modifier'><input type='submit' name='del' value='Supprimer'><BR></form>";
             $i++;
         }
     ?>
