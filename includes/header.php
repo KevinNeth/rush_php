@@ -8,7 +8,7 @@
     $link = mysqli_connect("localhost", "root", "root", "db_test", "8080");
     if (mysqli_connect_errno())
         echo "Failed to connect to MySQL : " . mysqli_connect_error();
-    $res = mysqli_query($link, "SELECT admin FROM users WHERE login = '" . $_SESSION['loggued_on_user'] . "'");
+    $res = mysqli_query($link, "SELECT admin FROM users WHERE login = '" . mysqli_real_escape_string($link, $_SESSION['loggued_on_user']) . "'");
     $row = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
     if (check_user())

@@ -46,7 +46,7 @@ function debug($var)
 					{
 						if ($quantity > 0)
 						{
-						$res = mysqli_query($link, "SELECT * FROM products WHERE id_product = '" . $id . "'");
+						$res = mysqli_query($link, "SELECT * FROM products WHERE id_product = '" . intval($id) . "'");
 						$row = mysqli_fetch_array($res, MYSQLI_ASSOC);
 						$fullprice += $_SESSION['panier'][$id] * $row['price'];
 						echo "

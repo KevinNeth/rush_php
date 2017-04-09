@@ -3,7 +3,7 @@ session_start();
 $link = mysqli_connect("localhost", "root", "root", "db_test", "8080");
 if (mysqli_connect_errno())
 	echo "Failed to connect to MySQL : " . mysqli_connect_error();
-	$res = mysqli_query($link, "SELECT login FROM users WHERE login = '" . $_SESSION['loggued_on_user'] . "'");
+	$res = mysqli_query($link, "SELECT login FROM users WHERE login = '" . mysqli_real_escape_string($link, $_SESSION['loggued_on_user']) . "'");
 	$row = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
 	if (!$row)
@@ -32,11 +32,11 @@ if (mysqli_connect_errno())
 				$date = date("Y-m-d H:i:s");
 				foreach($_SESSION['panier'] as $id => $quantity)
 				{
-					$n = mysqli_query($link, "SELECT * FROM products WHERE id_product = '". $id ."'");
+					$n = mysqli_query($link, "SELECT * FROM products WHERE id_product = '". intval($id) ."'");
 					$rown = mysqli_fetch_array($n, MYSQLI_ASSOC);
 					mysqli_query($link, "INSERT INTO cart
-					VALUES (null, '". $commande ."', '". $_SESSION['loggued_on_user'] ."', '". $id ."', '". $rown['title'] ."', '". $rown['price'] ."', '". $quantity ."',
-					 '". $rown['price'] * $quantity ."', '". $_POST['fullprice']."', '". $date ."');");
+					VALUES (null, '". intval($commande) ."', '". mysqli_real_escape_string($link, $_SESSION['loggued_on_user']) ."', '". intval($id) ."', '". mysqli_real_escape_string($link, $rown['title']) ."', '". intval($rown['price']) ."', '". intval($quantity) ."',
+					 '". intval($rown['price'] * $quantity) ."', '". intval($_POST['fullprice']) ."', '". $date ."');");
 				}
 				unset($_SESSION['panier']);
 				echo "Votre commande a bien été enregistrée";

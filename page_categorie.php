@@ -35,7 +35,7 @@ function debug($var)
 			<?php
 				if (isset($_GET['category']))
 				{
-					$result = mysqli_query($link, "SELECT * FROM products WHERE category='" . $_GET['category'] . "'");
+					$result = mysqli_query($link, "SELECT * FROM products WHERE category='" . mysqli_real_escape_string($link, $_GET['category']) . "'");
 					$redir = "page_categorie.php?category=" . $_GET['category'] . "";
 				}
 				else
