@@ -19,7 +19,6 @@ function debug($var)
 			$_SESSION['panier'][$_POST['id_product']] = 1;
 		else
 			$_SESSION['panier'][$_POST['id_product']] += 1;
-		debug($_SESSION);
 	}
 ?>
 
@@ -27,7 +26,7 @@ function debug($var)
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="./css/index.css">
 		<title>Headict</title>
 	</head>
 	<body>
@@ -35,13 +34,19 @@ function debug($var)
 		<div style = "text-align: center;">
 			<?php
 				if (isset($_GET['category']))
+				{
 					$result = mysqli_query($link, "SELECT * FROM products WHERE category='" . $_GET['category'] . "'");
+					$redir = "page_categorie.php?category=" . $_GET['category'] . "";
+				}
 				else
+				{
 					$result = mysqli_query($link, "SELECT * FROM products");
+					$redir = "page_categorie.php";
+				}
 				while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 				{?>
 					<div style = "display: inline-block;">
-					<form method="post" action="page_categorie.php">
+					<form method="post" action="<?= $redir; ?>">
 						<img class = "product" src = "<?= $row['img_url']; ?>"><br>
 						<a class = "descrp"><?= $row['title']." "; echo $row['price'];?></a>
 						<div><input type="hidden" name="id_product" value="<?= $row['id_product'] ?>" /></div>
