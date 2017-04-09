@@ -13,7 +13,7 @@
     <h1>Création de produit</h1>
     <?php
 		if (crea_prod($_POST['title'], $_POST['img_url'], $_POST['price'], $_POST['category'], $_POST['sub_category'], $_POST['promo'], $_POST['submit']))
-			echo "<p>Ajout reussie !</p><p><a href='admin.php'>Retourner au panneau d'administration ?</a></p>";
+			echo "<p>Ajout reussi !</p><p><a href='admin.php'>Retourner au panneau d'administration ?</a></p>";
 		else
 			echo "<p>Erreur pendant l'ajout.</p><p><a href='subscribe.php'>Réessayer ?</a></p>";
     ?>

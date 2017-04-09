@@ -3,8 +3,8 @@
 		<img id = "logo" src = "http://www.180back.com/wp-content/uploads/2013/12/headict.png">
 	</a>
     <?php
-    include "includes/check_usr.php";
-    include "includes/fun_log.php";
+    include_once "includes/check_usr.php";
+    include_once "includes/fun_log.php";
     $link = mysqli_connect("localhost", "root", "root", "db_test", "8080");
     if (mysqli_connect_errno())
         echo "Failed to connect to MySQL : " . mysqli_connect_error();

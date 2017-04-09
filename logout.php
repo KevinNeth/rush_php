@@ -1,4 +1,11 @@
-<?php session_start(); ?>
+<?php
+    session_start();
+    include "includes/check_usr.php";
+    include "includes/fun_log.php";
+    if ($_SESSION['loggued_on_user'] == "")
+        header("Location: index.php");
+    log_out();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +18,6 @@
 <div id="sub_box">
     <h1>Déconnexion</h1>
     <?php
-        log_out();
         echo "<p>Déconnexion reussie !</p>";
     ?>
 </div>
