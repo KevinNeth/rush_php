@@ -22,6 +22,11 @@ function debug($var)
 	}
 ?>
 
+<?php
+	if ($_POST['submit'] == 'VIDER')
+		unset($_SESSION['panier']);
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -66,6 +71,9 @@ function debug($var)
 						TOTAL  :".$fullprice."€
 						<form method = 'post' action = 'archive.php'>
 							<input type = 'submit' name = 'submit' value = 'VALIDER'/>
+						</form>
+						<form method = 'post' action = 'panier.php'>
+							<input type = 'submit' name = 'submit' value = 'VIDER' />
 						</form>
 						</div>";
 				}?>
