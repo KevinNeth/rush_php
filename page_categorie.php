@@ -27,7 +27,7 @@ function debug($var)
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="./css/index.css">
+		<link rel="stylesheet" href="css/index.css">
 		<title>Headict</title>
 	</head>
 	<body>

@@ -5,7 +5,7 @@ session_start();
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="./css/index.css">
+		<link rel="stylesheet" href="css/index.css">
 		<title>Panier</title>
 	</head>
 	<body>

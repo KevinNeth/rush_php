@@ -153,6 +153,16 @@ a:link
 	border: solid;
 }
 
+#admin_box {
+	margin: 25px auto;
+	padding-bottom: 15px;
+	background-color: whitesmoke;
+	border-radius: 2%;
+	width: 25%;
+	text-align: center;
+	border: solid;
+}
+
 #logout {
 	display: inline-block;
 	float: right;
