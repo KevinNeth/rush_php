@@ -7,11 +7,10 @@ Kneth :
 Fmartine :
 - Front
 - Creer categories et select pour les categories
-- Cart modifier
 - Check les autorisations sur certaines pages
 
 Together :
-
+- Cart modifier
 
 ## To Check
 - Users
@@ -24,6 +23,10 @@ Together :
 - Supprimer categorie
 - Archivage des commandes
 - Mettre les euros a cote des prix
+- Pouvoir modifier son compte.
+
+## Bug a changer
+
 
 ## Done
 

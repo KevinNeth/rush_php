@@ -14,6 +14,9 @@ if ($_SESSION['loggued_on_user'] == "")
 <?php include "./includes/header.php" ?>
 <div id="sub_box">
     <h1>Bonjour <?php echo $_SESSION['loggued_on_user']?></h1>
+	<form method="post" action="modif_usrbyusr.php">
+        <input type="submit" name="modify" value="Modifier le compte">
+    </form>
     <form method="post" action="del_usr.php">
         <input type="submit" name="submit" value="Supprimer le compte">
     </form>
