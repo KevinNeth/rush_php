@@ -8,6 +8,7 @@ Fmartine :
 - Front
 - Creer categories et select pour les categories
 - Check les autorisations sur certaines pages
+- Cart Delete via Admin
 
 Together :
 - Cart modifier

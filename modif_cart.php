@@ -25,14 +25,10 @@
             if ($lst_row['command_numb'] == $_POST['modif'])
                 echo "<form action='modif_prod.php' method='post'>
                         <input type='hidden' name='id' value='".$lst_row['id']."'>
-                        <input id='txt' type='text' name='name' value='".$lst_row['command_numb']."'>
                         <input id='txt' type='text' name='img_url' value='".$lst_row['login']."'>
-                        <input id='txt' type='text' name='price' value='".$lst_row['id_product']."'>
                         <input id='txt' type='text' name='category' value='".$lst_row['name_product']."'>
-                        <input id='txt' type='text' name='sub_category' value='".$lst_row['product_price']."'
+                        <input id='txt' type='text' name='sub_category' value='".$lst_row['product_price']."'>
                         <input id='txt' type='text' name='promo' value='".$lst_row['quantity']."'>
-                        <input id='txt' type='text' name='promo' value='".$lst_row['price_add']."'>
-                        <input id='txt' type='text' name='promo' value='".$lst_row['full_price']."'>
                         <input id='txt' type='text' name='promo' value='".$lst_row['order_date']."'>
                         <input type='submit' name='modif' value='Modifier'>
                         <input type='submit' name='del' value='Supprimer'><BR></form>";
