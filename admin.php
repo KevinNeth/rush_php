@@ -58,7 +58,7 @@
                     <input id='txt' type='text' name='img_url' value='".$lst_row['img_url']."'>
                     <input id='txt' type='text' name='price' value='".$lst_row['price']."'>
                     <input id='txt' type='text' name='category' value='".$lst_row['category']."'>
-                    <input id='txt' type='text' name='sub_category' value='".$lst_row['sub_category']."'>
+                    <input id='txt' type='text' name='sub_category' value='".$lst_row['sub_category']."'
                     <input id='txt' type='text' name='promo' value='".$lst_row['promo']."'>
                     <input type='submit' name='modif' value='Modifier'>
                     <input type='submit' name='del' value='Supprimer'><BR></form>";

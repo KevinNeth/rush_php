@@ -2,7 +2,7 @@
 ## TO-DO
 Kneth :
 - Proteger contre les injections SQL
-- Mettre les euros a cote des prix
+- Rajouter bouton + - sur page categorie
 
 Fmartine :
 - Front
@@ -22,6 +22,7 @@ Together :
 - Page Admin
 - Supprimer categorie
 - Archivage des commandes
+- Mettre les euros a cote des prix
 
 ## Done
 
