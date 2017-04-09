@@ -28,7 +28,7 @@
 		$link = mysqli_connect("localhost", "root", "root", "db_test", "8080");
 		if (mysqli_connect_errno())
 			echo "Failed to connect to MySQL : " . mysqli_connect_error();
-		if ($submit == 'OK' && $name & $img_url & $price & $category & $sub_category)
+		if ($submit == 'OK' && $name & $img_url & $price)
 		{
 			$res = mysqli_query($link, "SELECT title FROM products WHERE title = '" . $name . "'");
 			$row = mysqli_fetch_array($res, MYSQLI_ASSOC);

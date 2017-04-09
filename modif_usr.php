@@ -24,6 +24,7 @@
         else
             echo "<h1>Erreur</h1><p>Probleme lors de la modification.</p>"
     ?>
+    <p><a href="admin.php">Retour au panneau d'administration ?</a></p>
 </div>
 </body>
 </html>

@@ -18,9 +18,9 @@
 <body>
 <?php include "./includes/header.php" ?>
 <div id="admin_box">
-    <h1>Admin</h1>
+    <h1>Panneau d'administration</h1>
     <p>Bienvenue Mr. <?=$_SESSION['loggued_on_user']?>.</p>
-    <p>Liste utilisateurs : </p>
+    <h2>Gestion des ultilisateurs</h2>
     <?php
         echo "<p>Créer un nouvel utilisateur : <a href=\"subscribe.php\"><input type=\"button\" value=\"OK\"></a></p>";
         $i = 1;
@@ -41,7 +41,7 @@
             $i++;
         }
     ?>
-    <p>Gestion des produits</p>
+    <h2>Gestion des produits</h2>
     <?php
     echo "<p>Créer un nouveau produit : <a href='create_prod.php'><input type=\"button\" value=\"OK\"></a></p>";
     $i = 1;
@@ -63,6 +63,16 @@
                     <input type='submit' name='modif' value='Modifier'>
                     <input type='submit' name='del' value='Supprimer'><BR></form>";
         $i++;
+    }
+    ?>
+    <h2>Gestion des catégories</h2>
+    <?php
+    echo "<p>Créer une nouvelle catégorie : <a href='create_cat.php'><input type=\"button\" value=\"OK\"></a></p>";
+    $lst = mysqli_query($link, "SELECT category FROM products GROUP BY category");
+    while ($lst_row = mysqli_fetch_array($lst, MYSQLI_ASSOC))
+    {
+        echo "<form action='del_cat.php' method='post'><select value='test'></select></form>";
+        echo $lst_row['category']." ";
     }
     ?>
 </div>
