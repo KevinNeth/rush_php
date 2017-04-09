@@ -15,11 +15,11 @@
     <?php
         if ($_POST['del'] == 'Supprimer')
         {
-            echo "<h1>Suppression de compte</h1>".usr_del_adm($_POST['login'])."<p>Le compte ".$_POST['login']." a bien été supprimé.</p>";
+            echo "<h1>Suppression de produit</h1>".prod_del($_POST['id'])."<p>Le produit ".$_POST['name']." a bien été supprimé.</p>";
         }
-        else if ($_POST['modif'] == 'Modifier' && $_POST['password'] && $_POST['login'] && ($_POST['admin'] == 'yes' || $_POST['admin'] == 'no'))
+        else if ($_POST['modif'] == 'Modifier' && $_POST['name'] && $_POST['img_url'] && $_POST['price'] && $_POST['sub_category'] && $_POST['promo'])
         {
-            echo "<h1>Modification de compte</h1>".usr_mod($_POST['login'], $_POST['password'], $_POST['admin'], $_POST['id'])."<p>Le compte ".$_POST['login']." a bien été modifié.</p>";
+            echo "<h1>Modification de produit</h1>".prod_mod($_POST['name'], $_POST['img_url'], $_POST['price'], $_POST['category'], $_POST['sub_category'], $_POST['promo'], $_POST['id'])."<p>Le produit ".$_POST['name']." a bien été modifié.</p>";
         }
         else
             echo "<h1>Erreur</h1><p>Probleme lors de la modification.</p>"

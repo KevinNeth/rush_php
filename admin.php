@@ -20,9 +20,9 @@
 <div id="admin_box">
     <h1>Admin</h1>
     <p>Bienvenue Mr. <?=$_SESSION['loggued_on_user']?>.</p>
-    <p>Créer un nouvel utilisateur : <a href="subscribe.php"><input type="button" value="OK"></a></p>
     <p>Liste utilisateurs : </p>
     <?php
+        echo "<p>Créer un nouvel utilisateur : <a href=\"subscribe.php\"><input type=\"button\" value=\"OK\"></a></p>";
         $i = 1;
         $count = mysqli_query($link, "SELECT MAX(id_user) FROM users");
         $cnt_row =  $row = mysqli_fetch_array($count, MYSQLI_ASSOC);
@@ -31,9 +31,39 @@
             $lst = mysqli_query($link, "SELECT * FROM users WHERE id_user = $i");
             $lst_row = mysqli_fetch_array($lst, MYSQLI_ASSOC);
             if ($lst_row['login'] != '')
-                echo "<form action='modif_usr.php' method='post'><input type='hidden' name='id' value='".$lst_row['id_user']."'><input id='txt' type='text' name='login' value='".$lst_row['login']."'><input id='txt' type='text' name='password' value='".$lst_row['password']."' class='passwd'><input id='txt' type='text' name='admin' value='".$lst_row['admin']."'><input type='submit' name='modif' value='Modifier'><input type='submit' name='del' value='Supprimer'><BR></form>";
+                echo "<form action='modif_usr.php' method='post'>
+                        <input type='hidden' name='id' value='".$lst_row['id_user']."'>
+                        <input id='txt' type='text' name='login' value='".$lst_row['login']."'>
+                        <input id='txt' type='text' name='password' value='".$lst_row['password']."' class='passwd'>
+                        <input id='txt' type='text' name='admin' value='".$lst_row['admin']."'>
+                        <input type='submit' name='modif' value='Modifier'>
+                        <input type='submit' name='del' value='Supprimer'><BR></form>";
             $i++;
         }
+    ?>
+    <p>Gestion des produits</p>
+    <?php
+    echo "<p>Créer un nouveau produit : <a href='create_prod.php'><input type=\"button\" value=\"OK\"></a></p>";
+    $i = 1;
+    $count = mysqli_query($link, "SELECT MAX(id_product) FROM products");
+    $cnt_row =  $row = mysqli_fetch_array($count, MYSQLI_ASSOC);
+    while ($i <= $cnt_row['MAX(id_product)'])
+    {
+        $lst = mysqli_query($link, "SELECT * FROM products WHERE id_product = $i");
+        $lst_row = mysqli_fetch_array($lst, MYSQLI_ASSOC);
+        if ($lst_row['title'] != '')
+            echo "<form action='modif_prod.php' method='post'>
+                    <input type='hidden' name='id' value='".$lst_row['id_product']."'>
+                    <input id='txt' type='text' name='name' value='".$lst_row['title']."'>
+                    <input id='txt' type='text' name='img_url' value='".$lst_row['img_url']."'>
+                    <input id='txt' type='text' name='price' value='".$lst_row['price']."'>
+                    <input id='txt' type='text' name='category' value='".$lst_row['category']."'>
+                    <input id='txt' type='text' name='sub_category' value='".$lst_row['sub_category']."'>
+                    <input id='txt' type='text' name='promo' value='".$lst_row['promo']."'>
+                    <input type='submit' name='modif' value='Modifier'>
+                    <input type='submit' name='del' value='Supprimer'><BR></form>";
+        $i++;
+    }
     ?>
 </div>
 </body>

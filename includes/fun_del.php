@@ -14,4 +14,11 @@
             echo "Failed to connect to MySQL : " . mysqli_connect_error();
         mysqli_query($link, "DELETE FROM users WHERE login = '" . $user . "'");
     }
+    function prod_del($id)
+    {
+        $link = mysqli_connect("localhost", "root", "root", "db_test", "8080");
+        if (mysqli_connect_errno())
+            echo "Failed to connect to MySQL : " . mysqli_connect_error();
+        mysqli_query($link, "DELETE FROM products WHERE id_product = '" . $id . "'");
+    }
 ?>
