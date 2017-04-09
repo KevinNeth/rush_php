@@ -88,15 +88,16 @@
     {
         $lst = mysqli_query($link, "SELECT * FROM cart WHERE command_numb = $i");
         $lst_row = mysqli_fetch_array($lst, MYSQLI_ASSOC);
-            echo "<form action='modif_prod.php' method='post'>
+            echo "<form action='modif_cart.php' method='post'>
+                    <table>
                     <input type='hidden' name='id' value='".$lst_row['id']."'>
-                    <span>".$lst_row['command_numb']."</span> |
+                    <tr><span>".$lst_row['command_numb']."</span></tr> | 
                     <span>".$lst_row['login']."</span> |
                     <span>".$lst_row['full_price']."</span> |
                     <span>".$lst_row['order_date']."</span> |
-                    <input type='submit' name='modif' value='Modifier'>
+                    <button type='submit' name='modif' value='".$lst_row['command_numb']."'>Modifier</button>
                     <input type='submit' name='del' value='Supprimer'><BR></form>";
-        $i++;
+            $i++;
     }
     ?>
 

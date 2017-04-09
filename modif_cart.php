@@ -11,18 +11,33 @@
 <?php include "./includes/fun_sub.php"?>
 <?php include "./includes/fun_del.php"?>
 <?php include "./includes/fun_mod.php"?>
-<div id="sub_box">
+<div id="admin_box">
+    <h1>Modification du panier</h1>
     <?php
-    if ($_POST['del'] == 'Supprimer')
-    {
-        echo "<h1>Suppression de produit</h1>".prod_del($_POST['id'])."<p>Le produit ".$_POST['name']." a bien été supprimé.</p>";
-    }
-    else if ($_POST['modif'] == 'Modifier' && $_POST['name'] && $_POST['img_url'] && $_POST['price'] && $_POST['sub_category'] && $_POST['promo'])
-    {
-        echo "<h1>Modification de produit</h1>".prod_mod($_POST['name'], $_POST['img_url'], $_POST['price'], $_POST['category'], $_POST['sub_category'], $_POST['promo'], $_POST['id'])."<p>Le produit ".$_POST['name']." a bien été modifié.</p>";
-    }
-    else
-        echo "<h1>Erreur</h1><p>Probleme lors de la modification.</p>"
+        $i = 1;
+        $count = mysqli_query($link, "SELECT MAX(id) FROM cart");
+        $cnt_row = mysqli_fetch_array($count, MYSQLI_ASSOC);
+        $lst = mysqli_query($link, "SELECT * FROM cart WHERE id = $i");
+        while ($i <= $cnt_row['MAX(id)'])
+        {
+            $lst = mysqli_query($link, "SELECT * FROM cart WHERE id = $i");
+            $lst_row = mysqli_fetch_array($lst, MYSQLI_ASSOC);
+            if ($lst_row['command_numb'] == $_POST['modif'])
+                echo "<form action='modif_prod.php' method='post'>
+                        <input type='hidden' name='id' value='".$lst_row['id']."'>
+                        <input id='txt' type='text' name='name' value='".$lst_row['command_numb']."'>
+                        <input id='txt' type='text' name='img_url' value='".$lst_row['login']."'>
+                        <input id='txt' type='text' name='price' value='".$lst_row['id_product']."'>
+                        <input id='txt' type='text' name='category' value='".$lst_row['name_product']."'>
+                        <input id='txt' type='text' name='sub_category' value='".$lst_row['product_price']."'
+                        <input id='txt' type='text' name='promo' value='".$lst_row['quantity']."'>
+                        <input id='txt' type='text' name='promo' value='".$lst_row['price_add']."'>
+                        <input id='txt' type='text' name='promo' value='".$lst_row['full_price']."'>
+                        <input id='txt' type='text' name='promo' value='".$lst_row['order_date']."'>
+                        <input type='submit' name='modif' value='Modifier'>
+                        <input type='submit' name='del' value='Supprimer'><BR></form>";
+            $i++;
+        }
     ?>
 </div>
 </body>
