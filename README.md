@@ -3,6 +3,7 @@
 Kneth :
 - Proteger contre les injections SQL
 - Archivage des commandes
+- Mettre les euros a cote des prix
 
 Fmartine :
 - Front

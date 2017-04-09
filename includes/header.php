@@ -11,9 +11,6 @@
     $res = mysqli_query($link, "SELECT admin FROM users WHERE login = '" . $_SESSION['loggued_on_user'] . "'");
     $row = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
-    if ($row['admin'] == 'yes')
-    echo '<a href="admin.php"><img id = "logout" src ="http://www.yurisrunhouston.com/uploads/3/9/1/9/3919285/_457014621_orig.png"></a>';
-
     if (check_user())
         echo '<a href = "logout.php">
 		<img id = "logout" src = "https://image.freepik.com/free-icon/logout-ios-7-interface-symbol_318-33643.jpg">
@@ -26,6 +23,8 @@
 	<img id = "user" src = "http://www.itafv.dz/images/bouton_connexion.png">
 	</a>';
     }
+    if ($row['admin'] == 'yes')
+    echo '<a href="admin.php"><img id = "logout" src ="http://www.yurisrunhouston.com/uploads/3/9/1/9/3919285/_457014621_orig.png"></a>';
     ?>
 	<a href = "panier.php"><img id = "panier" src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQPNXmtD1xENijy4BIwUmHzm1DtbBSgKhHVM5JaXfgeCByEwEHQ"></a>
 </div>
