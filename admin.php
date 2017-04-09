@@ -68,13 +68,18 @@
     <h2>Gestion des catégories</h2>
     <?php
     echo "<p>Créer une nouvelle catégorie : <a href='create_cat.php'><input type=\"button\" value=\"OK\"></a></p>";
-    $lst = mysqli_query($link, "SELECT category FROM products GROUP BY category");
-    while ($lst_row = mysqli_fetch_array($lst, MYSQLI_ASSOC))
-    {
-        echo "<form action='del_cat.php' method='post'><select value='test'></select></form>";
-        echo $lst_row['category']." ";
-    }
-    ?>
+    $lst = mysqli_query($link, "SELECT sub_category FROM products GROUP BY sub_category");?>
+        <form action='del_cat.php' method='post'>
+            <select name="del">
+            <?php
+                while ($lst_row = mysqli_fetch_array($lst, MYSQLI_ASSOC))
+                {
+                    echo "<option value='".$lst_row['sub_category']."'>".$lst_row['sub_category'].""."</option>";
+                }
+            ?>
+                </select>
+            <input type="submit" value="Supprimer">
+        </form>
 </div>
 </body>
 </html>

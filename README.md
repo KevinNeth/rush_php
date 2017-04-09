@@ -1,19 +1,16 @@
-# Rush site d'ecomerce
+# Rush site d'e-commerce
 ## TO-DO
 Kneth :
 - Proteger contre les injections SQL
-- Archivage des commandes
 - Mettre les euros a cote des prix
 
 Fmartine :
 - Front
-- Page Admin
-- Supprimer categorie
+- Cart modifier
 - Check les autorisations sur certaines pages
-- Promo sur l'accueil
 
 Together :
-- Refaire le menu principal + menu categories
+
 
 ## To Check
 - Users
@@ -21,10 +18,14 @@ Together :
 - Categories et produits
 - Panier
 - Actualiser header apres co/deco
-
+- Promo sur l'accueil
+- Page Admin
+- Supprimer categorie
+- Archivage des commandes
 
 ## Done
 
 
 ## Bonus
 - Supprimer commandes lors de la suppression d'un compte
+- Refaire le menu principal + menu categories
