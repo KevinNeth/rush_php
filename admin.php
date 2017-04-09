@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="css/index.css">
     <title>Headict</title>
 </head>
 <body>
@@ -30,7 +30,7 @@
         {
             $lst = mysqli_query($link, "SELECT * FROM users WHERE id_user = $i");
             $lst_row = mysqli_fetch_array($lst, MYSQLI_ASSOC);
-            echo $lst_row['login']." ".$lst_row['password']." ".$lst_row['admin']."<BR>";
+            echo "<form action='modif_usr.php' method='post'><input type='text' name='login' value='".$lst_row['login']."'><input type='text' name='password' value='".$lst_row['password']."'><input type='text' name='admin' value='".$lst_row['admin']."'><BR><input type='button' value='Supprimer'></form>";
             $i++;
         }
     ?>
